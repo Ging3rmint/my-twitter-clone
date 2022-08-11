@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: '#{$icomoon-font-family}';
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?romshz');
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?romshz#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?romshz') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?romshz') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?romshz##{$icomoon-font-family}') format('svg');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?e597r4');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?e597r4#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?e597r4') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?e597r4') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?e597r4##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -27,6 +27,46 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-clear {
+  &:before {
+    content: $icon-clear; 
+  }
+}
+.icon-insert_emoticon {
+  &:before {
+    content: $icon-insert_emoticon; 
+  }
+}
+.icon-minus {
+  &:before {
+    content: $icon-minus; 
+  }
+}
+.icon-plus {
+  &:before {
+    content: $icon-plus; 
+  }
+}
+.icon-bookmark {
+  &:before {
+    content: $icon-bookmark; 
+  }
+}
+.icon-link {
+  &:before {
+    content: $icon-link; 
+  }
+}
+.icon-share {
+  &:before {
+    content: $icon-share; 
+  }
+}
+.icon-search1 {
+  &:before {
+    content: $icon-search1; 
+  }
+}
 .icon-dots-three-horizontal {
   &:before {
     content: $icon-dots-three-horizontal; 
@@ -36,6 +76,11 @@
   &:before {
     content: $icon-twitter;     
     color: #1da1f2;
+  }
+}
+.icon-image {
+  &:before {
+    content: $icon-image; 
   }
 }
 .icon-retweet {
@@ -86,36 +131,6 @@
 .icon-edit {
   &:before {
     content: $icon-edit; 
-  }
-}
-.icon-minus {
-  &:before {
-    content: $icon-minus; 
-  }
-}
-.icon-plus {
-  &:before {
-    content: $icon-plus; 
-  }
-}
-.icon-bookmark {
-  &:before {
-    content: $icon-bookmark; 
-  }
-}
-.icon-link {
-  &:before {
-    content: $icon-link; 
-  }
-}
-.icon-share {
-  &:before {
-    content: $icon-share; 
-  }
-}
-.icon-search1 {
-  &:before {
-    content: $icon-search1; 
   }
 }
 

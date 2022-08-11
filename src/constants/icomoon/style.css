@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?romshz');
-  src:  url('fonts/icomoon.eot?romshz#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?romshz') format('truetype'),
-    url('fonts/icomoon.woff?romshz') format('woff'),
-    url('fonts/icomoon.svg?romshz#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?e597r4');
+  src:  url('fonts/icomoon.eot?e597r4#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?e597r4') format('truetype'),
+    url('fonts/icomoon.woff?e597r4') format('woff'),
+    url('fonts/icomoon.svg?e597r4#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,12 +25,39 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-clear:before {
+  content: "\e902";
+}
+.icon-insert_emoticon:before {
+  content: "\e901";
+}
+.icon-minus:before {
+  content: "\e90e";
+}
+.icon-plus:before {
+  content: "\e90f";
+}
+.icon-bookmark:before {
+  content: "\e911";
+}
+.icon-link:before {
+  content: "\e912";
+}
+.icon-share:before {
+  content: "\e913";
+}
+.icon-search1:before {
+  content: "\e92f";
+}
 .icon-dots-three-horizontal:before {
   content: "\e915";
 }
 .icon-twitter:before {
   content: "\e91c";
   color: #1da1f2;
+}
+.icon-image:before {
+  content: "\e900";
 }
 .icon-retweet:before {
   content: "\e908";
@@ -61,22 +88,4 @@
 }
 .icon-edit:before {
   content: "\e90d";
-}
-.icon-minus:before {
-  content: "\e90e";
-}
-.icon-plus:before {
-  content: "\e90f";
-}
-.icon-bookmark:before {
-  content: "\e911";
-}
-.icon-link:before {
-  content: "\e912";
-}
-.icon-share:before {
-  content: "\e913";
-}
-.icon-search1:before {
-  content: "\e92f";
 }

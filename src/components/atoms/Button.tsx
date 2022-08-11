@@ -65,8 +65,10 @@ const StyledButton = styled.button<{ $name?: string }>`
   color: ${twitterBlack};
   border: none;
   cursor: pointer;
+  background-color: transparent;
 
   &:hover {
+    color: ${twitterBlack};
     background-color: ${({ $name }) =>
       $name ? twitterExtraLightGray : twitterExtraExtraLightGray};
   }

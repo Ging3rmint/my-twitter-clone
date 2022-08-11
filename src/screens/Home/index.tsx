@@ -13,4 +13,6 @@ const index: FC = () => {
 
 export default index;
 
-const HomeContainer = styled.div``;
+const HomeContainer = styled.div`
+  padding-top: 10px;
+`;

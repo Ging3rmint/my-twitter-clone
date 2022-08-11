@@ -1,13 +1,25 @@
-import { FC } from "react";
+import { FC, FormEvent, useState } from "react";
 import styled from "styled-components";
 
 import { COLORS } from "@variables";
 import Button from "components/atoms/Button";
 import Input from "components/atoms/Input";
+import ImageUploadButton from "./ImageUploadButton";
+import ImagePreview from "./ImagePreview";
 
 const { twitterExtraExtraLightGray } = COLORS;
 
 const PostForm: FC = () => {
+  const [imageFile, setImageFile] = useState(null);
+
+  const onClearImage = () => {
+    setImageFile(null);
+  };
+
+  const onFormSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <PostFormContainer>
       <Button
@@ -17,7 +29,7 @@ const PostForm: FC = () => {
           alt: "my profile image",
         }}
       />
-      <form>
+      <form onSubmit={onFormSubmit}>
         <div className='top-wrapper'>
           <div className='top-wrapper--field'>
             <Input
@@ -26,10 +38,18 @@ const PostForm: FC = () => {
               type='text'
               placeholder="What's happening?"
             />
+            {imageFile && (
+              <ImagePreview imageFile={imageFile} onClearImage={onClearImage} />
+            )}
           </div>
         </div>
         <div className='bottom-wrapper'>
-          <ul className='settings-list'></ul>
+          <div className='settings-list'>
+            <ImageUploadButton
+              setImageFile={setImageFile}
+              imageFile={imageFile}
+            />
+          </div>
           <Input disabled className='form-submit' type='submit' value='Tweet' />
         </div>
       </form>
@@ -70,6 +90,7 @@ const PostFormContainer = styled.div`
       .form-submit {
         width: 80px;
         font-size: 12px;
+        align-self: flex-start;
       }
     }
   }
