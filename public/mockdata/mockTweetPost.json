@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "total": 2,
+    "max": 2,
+    "current": 2
+  },
+  "result": [
+    {
+      "id": "1",
+      "message": "lorem ipsum lorem ipsum 1",
+      "tags": ["#lorem", "#awesome"],
+      "user": {
+        "id": "123",
+        "displayName": "Gingermint",
+        "username": "Nate19",
+        "image": "./images/profile_morty.jpg"
+      },
+      "likes": [],
+      "comments": 0,
+      "retweet": 0
+    },
+    {
+      "id": "2",
+      "message": "lorem ipsum lorem ipsum 2",
+      "tags": ["#lorem", "#awesome", "#tester"],
+      "user": {
+        "id": "123",
+        "displayName": "Gingermint",
+        "username": "Nate19",
+        "image": "./images/profile_morty.jpg"
+      },
+      "likes": [],
+      "comments": 0,
+      "retweet": 0
+    }
+  ]
+}

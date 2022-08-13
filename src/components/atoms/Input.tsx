@@ -3,13 +3,7 @@ import styled from "styled-components";
 
 import { COLORS } from "@variables";
 
-const {
-  twitterExtraLightGray,
-  twitterBlack,
-  twitterBlue,
-  twitterDarkBlue,
-  twitterExtraExtraLightGray,
-} = COLORS;
+const { twitterBlack, twitterBlue, twitterDarkBlue } = COLORS;
 
 interface IInput {
   type: string;
@@ -64,11 +58,13 @@ const StyledInput = styled.input<{ type: string; disabled?: boolean }>`
       backgroundColor: isSubmit ? twitterBlue : "transparent",
       color: isSubmit ? "white" : twitterBlack,
       opacity: isSubmit && disabled ? "0.5" : "1",
-      "&:hover": isSubmit
-        ? disabled
-          ? twitterBlue
-          : twitterDarkBlue
-        : "transparent",
+      "&:hover": {
+        backgroundColor: isSubmit
+          ? disabled
+            ? twitterBlue
+            : twitterDarkBlue
+          : "transparent",
+      },
     };
   }}
 `;

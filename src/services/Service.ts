@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-class GlobalContext<P extends object = {}> {
+class Service<P extends object = {}> {
   //using proxy to prevent set method from looping
   private proxyContext = {} as P;
   //flag to prevent dispatchUpdaters from running while it is still resolving
@@ -123,7 +123,7 @@ class GlobalContext<P extends object = {}> {
   };
 }
 
-export default GlobalContext;
+export default Service;
 
 const isEqual = (prev: Function, next: Function) => {
   return JSON.stringify(prev) === JSON.stringify(next);
@@ -133,10 +133,7 @@ const isEqual = (prev: Function, next: Function) => {
  *  @param contextInstance - instance created from GlobalContext class
  *  @param callback - callback function to get context
  *  */
-export const useGlobalContext = (
-  contextInstance: GlobalContext,
-  callback: Function
-) => {
+export const useService = (contextInstance: Service, callback: Function) => {
   const [contextCallback, setContextCallback] = useState(
     callback({ ...contextInstance.context })
   );

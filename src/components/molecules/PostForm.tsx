@@ -6,11 +6,13 @@ import Button from "components/atoms/Button";
 import Input from "components/atoms/Input";
 import ImageUploadButton from "./ImageUploadButton";
 import ImagePreview from "./ImagePreview";
+import EmojiPickerButton, { IemojiObject } from "./EmojiPickerButton";
 
 const { twitterExtraExtraLightGray } = COLORS;
 
 const PostForm: FC = () => {
   const [imageFile, setImageFile] = useState(null);
+  const [tweet, setTweet] = useState("");
 
   const onClearImage = () => {
     setImageFile(null);
@@ -20,10 +22,17 @@ const PostForm: FC = () => {
     e.preventDefault();
   };
 
+  const onEmojiChange = (emojiObject: IemojiObject) => {
+    const { emoji } = emojiObject;
+
+    setTweet(tweet + emoji);
+  };
+
   return (
     <PostFormContainer>
       <Button
-        className='profile-btn pill'
+        className='profile pill'
+        to='/profile'
         img={{
           src: "./images/profile_morty.jpg",
           alt: "my profile image",
@@ -31,17 +40,19 @@ const PostForm: FC = () => {
       />
       <form onSubmit={onFormSubmit}>
         <div className='top-wrapper'>
-          <div className='top-wrapper--field'>
-            <Input
-              className='post-input'
-              name='tweet'
-              type='text'
-              placeholder="What's happening?"
-            />
-            {imageFile && (
-              <ImagePreview imageFile={imageFile} onClearImage={onClearImage} />
-            )}
-          </div>
+          <Input
+            className='post-input'
+            name='tweet'
+            type='text'
+            placeholder="What's happening?"
+            value={tweet}
+            onChange={(e: FormEvent<HTMLInputElement>) =>
+              setTweet(e.currentTarget.value)
+            }
+          />
+          {imageFile && (
+            <ImagePreview imageFile={imageFile} onClearImage={onClearImage} />
+          )}
         </div>
         <div className='bottom-wrapper'>
           <div className='settings-list'>
@@ -49,8 +60,14 @@ const PostForm: FC = () => {
               setImageFile={setImageFile}
               imageFile={imageFile}
             />
+            <EmojiPickerButton onChange={onEmojiChange} />
           </div>
-          <Input disabled className='form-submit' type='submit' value='Tweet' />
+          <Input
+            disabled={!!!tweet.length}
+            className='form-submit'
+            type='submit'
+            value='Tweet'
+          />
         </div>
       </form>
     </PostFormContainer>
@@ -62,13 +79,8 @@ export default PostForm;
 const PostFormContainer = styled.div`
   display: flex;
   width: 100%;
-
-  .profile-btn {
-    overflow: hidden;
-    width: 50px;
-    padding: 0;
-    align-self: flex-start;
-  }
+  border-bottom: 1px solid ${twitterExtraExtraLightGray};
+  padding: 0 12px;
 
   form {
     width: 100%;
@@ -76,16 +88,25 @@ const PostFormContainer = styled.div`
     margin-left: 15px;
 
     .top-wrapper {
-      padding-bottom: 25px;
-      display: flex;
-      align-items: center;
+      width: 100%;
       border-bottom: 1px solid ${twitterExtraExtraLightGray};
+
+      .post-input {
+        display: block;
+        width: 100%;
+      }
     }
 
     .bottom-wrapper {
+      width: 100%;
       padding: 6px 0;
       display: flex;
       justify-content: space-between;
+
+      .settings-list {
+        display: flex;
+        align-items: center;
+      }
 
       .form-submit {
         width: 80px;

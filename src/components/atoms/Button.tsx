@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Ref, forwardRef } from "react";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 import { IconProps } from "react-icomoon";
@@ -29,29 +29,24 @@ interface IButton {
   className?: string;
 }
 
-const Button: FC<IButton> = ({
-  to,
-  isNavLink,
-  img,
-  name,
-  icon,
-  onClick,
-  className,
-}) => {
-  return (
-    <StyledButton
-      $name={name}
-      as={to ? (isNavLink ? NavLink : Link) : "button"}
-      to={to}
-      onClick={onClick}
-      className={className}
-    >
-      {img && <img className='btn-img' src={img.src} alt={img.alt} />}
-      {icon && <Icon className='btn-icon' {...icon} />}
-      {name && <span>{name}</span>}
-    </StyledButton>
-  );
-};
+const Button = forwardRef<HTMLButtonElement, IButton>(
+  ({ to, isNavLink, img, name, icon, onClick, className }, ref) => {
+    return (
+      <StyledButton
+        ref={ref}
+        $name={name}
+        as={to ? (isNavLink ? NavLink : Link) : "button"}
+        to={to}
+        onClick={onClick}
+        className={className}
+      >
+        {img && <img className='btn-img' src={img.src} alt={img.alt} />}
+        {icon && <Icon className='btn-icon' {...icon} />}
+        {name && <span>{name}</span>}
+      </StyledButton>
+    );
+  }
+);
 
 export default Button;
 
@@ -79,6 +74,13 @@ const StyledButton = styled.button<{ $name?: string }>`
 
   &.pill {
     border-radius: 50px;
+  }
+
+  &.profile {
+    overflow: hidden;
+    width: 50px;
+    padding: 0;
+    align-self: flex-start;
   }
 
   &.primary {
